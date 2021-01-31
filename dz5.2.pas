@@ -12,7 +12,8 @@ begin
   var y := 0;
   while userNumber > round(10 ** y) do 
   begin
-    digitsQty := y;
+    digitsQty := y
+	;
     y := y + 1; 
   end;
   var digit : Integer;
