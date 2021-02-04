@@ -1,11 +1,11 @@
 ﻿//спроси у пользователя 5 чисел и заполни ими массив
-const cells = 4;
+const itemsCount = 4;
 begin
-  var myCoolArray: array [0..cells] of real;  
-  for var x := 0 to cells do
+  var myCoolArray: array [0..itemsCount] of real;  
+  for var j := 0 to itemsCount do
   begin
-    myCoolArray[x] := ReadReal('Введите число ');
+    myCoolArray[j] := ReadReal('Введите число: ');
   end;    
-  for var i := 0 to cells do  
+  for var i := 0 to itemsCount do  
     write(myCoolArray[i], ' ');  
 end.
