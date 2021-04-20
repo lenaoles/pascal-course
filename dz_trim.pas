@@ -1,24 +1,16 @@
 ﻿//сделать программу, которая будет работать как функция trim
 //пользователь вводит строку, а ты ему в ответ выводишь строку без пробелов по бокам
+//сделать программу, которая будет работать как функция trim
+//пользователь вводит строку, а ты ему в ответ выводишь строку без пробелов по бокам
 begin
-  var userLineSymbols: array[0.. 99] of char; 
-  var symbolsQty: integer;
-  writeln('Введите длину строки текста не более 100 символов:');
-  readln(symbolsQty);
-  writeln('Введите строку текста:');//userLine
-  for var i := 0 to symbolsQty - 1 do read(userLineSymbols[i]); 
-  
-  while userLineSymbols[0] = ' ' do
+  var originLine := ReadString('Введите строку текста: '); 
+  if originLine[1] = ' ' then 
   begin
-    for var i := 0 to symbolsQty - 1 do
-      userLineSymbols[i] := userLineSymbols[i + 1];
-    symbolsQty := symbolsQty - 1;
+    for var i := 1 to originLine.Length - 1 do
+      originLine[i] := (originLine[i + 1]);
+    delete(originLine, originLine.Length, 1);
   end;
-  
-  while userLineSymbols[symbolsQty-1] = ' ' do
-    symbolsQty := symbolsQty - 1;
-  
-  write('Строка текста без пробелов ''');
-  for var i := 0 to symbolsQty - 1 do write(userLineSymbols[i]); 
-  write('''');
+  if(originLine[originLine.Length]) = ' ' then 
+    delete(originLine, originLine.Length, 1);
+  writeln('Результат: ''', originLine, '''');
 end.
