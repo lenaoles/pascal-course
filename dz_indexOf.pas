@@ -11,12 +11,12 @@ begin
       begin
         for var y := 1 to partOfOriginLine.Length - 1 do
           if originLine[x + y] <> partOfOriginLine[1 + y]
-            then writeln('error')
+            then index:=0
           else index := x
       end
       else index := x
     else continue; 
   if index = 0
     then writeln('error')
-  else writeln('Индекс: ', index);
+    else writeln('Индекс: ', index);
 end.
