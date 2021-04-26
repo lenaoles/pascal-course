@@ -4,29 +4,19 @@
 begin
   var originLine := ReadString('Введите строку текста: ');   
   var partOfOriginLine := ReadString('Введите часть строки которую нужно найти: ');
-  var index: integer;
-  
-  if partOfOriginLine.Length < 2 then
-    for var i := 1 to originLine.Length do  
-      if originLine[i] = partOfOriginLine[1] then
+  var index: integer; 
+  for var x := 1 to originLine.Length do
+    if originLine[x] = partOfOriginLine[1] then 
+      if partOfOriginLine.Length > 1 then
       begin
-        index := i;
-        writeln(index);
+        for var y := 1 to partOfOriginLine.Length - 1 do
+          if originLine[x + y] <> partOfOriginLine[1 + y]
+            then writeln('error')
+          else index := x
       end
-      else continue
-  else    
-  begin
-    for var y := 1 to originLine.Length do    
-      if originLine[y] = partOfOriginLine[1] then
-      begin
-        for var x := 1 to partOfOriginLine.Length - 1 do    
-          if originLine[y + x] = partOfOriginLine[x + 1] then
-          begin
-            index := y;
-            writeln(index);
-          end
-          else writeln('error')
-      end
-      else continue
-  end;
+      else index := x
+    else continue; 
+  if index = 0
+    then writeln('error')
+  else writeln('Индекс: ', index);
 end.
